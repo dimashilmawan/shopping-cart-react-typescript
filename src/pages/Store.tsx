@@ -1,5 +1,4 @@
 import StoreItem from "../components/StoreItem";
-import { useShoppingCartContext } from "../context/ShoppingCartContext";
 import storeItems from "../data/items.json";
 
 const Store = () => {

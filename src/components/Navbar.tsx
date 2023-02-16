@@ -20,7 +20,11 @@ const Navbar = () => {
 				</ul>
 				{cartQuantity > 0 && (
 					<button
-						onClick={openCart}
+						id="button-cart"
+						onClick={e => {
+							e.stopPropagation();
+							openCart();
+						}}
 						className="group relative flex h-11 w-11 items-center justify-center rounded-full outline-none ring-1 ring-indigo-500 transition-all hover:bg-indigo-500 focus:ring-2 focus:ring-indigo-300"
 					>
 						<BsCart4 className="text-xl text-indigo-500 group-hover:text-gray-100" />

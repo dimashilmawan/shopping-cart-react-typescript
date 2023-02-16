@@ -19,7 +19,7 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
 	} = useShoppingCartContext();
 	const quantity = getItemQuantity(id);
 	return (
-		<div className="overflow-hidden rounded-md bg-gray-300 bg-opacity-30 shadow-md">
+		<div className="overflow-hidden rounded-md bg-gray-200 bg-opacity-5 shadow-md ">
 			<img
 				src={imgUrl}
 				alt={name}

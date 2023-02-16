@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ShoppingCart from "./components/ShoppingCart";
 import ShoppingCartProvider from "./context/ShoppingCartContext";
@@ -11,14 +11,15 @@ const App = () => {
 	return (
 		<ShoppingCartProvider>
 			<Navbar />
-			<ShoppingCart />
-			<div>
+			<main>
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/store" element={<Store />} />
 					<Route path="/about" element={<About />} />
+					<Route path="/*" element={<Navigate to="/" />} />
 				</Routes>
-			</div>
+			</main>
+			<ShoppingCart />
 		</ShoppingCartProvider>
 	);
 };

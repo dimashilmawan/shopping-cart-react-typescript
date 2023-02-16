@@ -13,6 +13,7 @@ type ShoppingCartContextObj = {
 	removeFromCart: (id: number) => void;
 	openCart: () => void;
 	closeCart: () => void;
+	toggleCart: () => void;
 	cartIsOpen: boolean;
 	cartItems: CartItem[];
 	cartQuantity: number;
@@ -38,6 +39,7 @@ const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
 
 	const openCart = () => setCartIsOpen(true);
 	const closeCart = () => setCartIsOpen(false);
+	const toggleCart = () => setCartIsOpen(prevState => !prevState);
 
 	const getItemQuantity = (id: number) => {
 		return cartItems.find(item => item.id === id)?.quantity || 0;
@@ -92,6 +94,7 @@ const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
 				removeFromCart,
 				openCart,
 				closeCart,
+				toggleCart,
 				cartIsOpen,
 			}}
 		>
