@@ -24,11 +24,27 @@ const ShoppingCart = () => {
 
 		return () => document.removeEventListener("click", closeShoppingCart);
 	}, [cartIsOpen]);
+
+	// useEffect(() => {
+	// 	const closeShoppingCart = (e: MouseEvent) => {
+	// 		if (!cartIsOpen) return;
+	// 		if (
+	// 			sidebarRef?.current &&
+	// 			!sidebarRef.current.contains(e.target as Element)
+	// 		)
+	// 			closeCart();
+	// 	};
+
+	// 	document.addEventListener("click", closeShoppingCart);
+
+	// 	return () => document.removeEventListener("click", closeShoppingCart);
+	// }, [cartIsOpen]);
+
 	return (
 		<aside
 			ref={sidebarRef}
 			id="sidebar"
-			className={`fixed top-0 h-screen w-2/3 bg-gray-200 bg-opacity-90 backdrop-blur-md transition-all duration-75
+			className={`eas fixed top-0 h-screen w-2/3 bg-gray-200 bg-opacity-90 backdrop-blur-md transition-all ease-out
 			 ${cartIsOpen && cartItems.length > 0 ? "right-0 " : "-right-full"}`}
 		>
 			<div
